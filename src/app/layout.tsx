@@ -1,10 +1,20 @@
 import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
 export const metadata: Metadata = {
-  title: "WhatDev | Hand-Drawn App Showcase Portfolio",
-  description: "A creative, modern landing page designed in a colorful hand-drawn pencil sketch wireframe style showcasing digital products.",
-  keywords: ["sketchbook", "portfolio", "hand-drawn wireframe", "NextJS", "creative landing page"],
+  title: "HtgoApp - Quản lý chi tiêu cá nhân",
+  description: "Ứng dụng giúp bạn dễ dàng theo dõi thu nhập, chi tiêu và phân tích tài chính cá nhân một cách trực quan, bảo mật.",
 };
 
 export default function RootLayout({
@@ -13,12 +23,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="notebook-paper">
-        <main className="page-frame">
-          {children}
-        </main>
-      </body>
+    <html
+      lang="en"
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+    >
+      <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
 }

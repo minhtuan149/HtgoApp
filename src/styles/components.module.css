@@ -1,0 +1,158 @@
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: 1px solid transparent;
+  gap: 8px;
+  user-select: none;
+  text-decoration: none;
+}
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btnPrimary {
+  background-color: var(--primary);
+  color: #fff;
+}
+.btnPrimary:hover:not(:disabled) {
+  background-color: var(--primary-hover);
+  box-shadow: 0 4px 14px hsla(250, 85%, 60%, 0.25);
+  transform: translateY(-1px);
+}
+.btnPrimary:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btnSecondary {
+  background-color: var(--bg-card);
+  border-color: var(--border-color);
+  color: var(--text-main);
+}
+.btnSecondary:hover:not(:disabled) {
+  background-color: var(--bg-app);
+  border-color: var(--text-muted);
+}
+
+.btnDanger {
+  background-color: var(--danger);
+  color: #fff;
+}
+.btnDanger:hover:not(:disabled) {
+  background-color: var(--danger-hover);
+  box-shadow: 0 4px 14px hsla(350, 80%, 50%, 0.25);
+  transform: translateY(-1px);
+}
+
+.btnText {
+  background: transparent;
+  color: var(--text-muted);
+  padding: 8px 12px;
+}
+.btnText:hover:not(:disabled) {
+  color: var(--text-main);
+  background: var(--border-color);
+}
+
+/* Form inputs */
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-card);
+  color: var(--text-main);
+  font-size: 14px;
+  transition: all var(--transition-fast);
+  outline: none;
+}
+.input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px hsla(250, 85%, 60%, 0.15);
+}
+.input::placeholder {
+  color: var(--text-muted);
+  opacity: 0.6;
+}
+
+.select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2371717a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 16px;
+  padding-right: 40px;
+}
+
+/* Card */
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-md);
+}
+
+/* Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.badgeIncome {
+  background-color: var(--success-light);
+  color: var(--success);
+}
+
+.badgeExpense {
+  background-color: var(--danger-light);
+  color: var(--danger);
+}
+
+/* Loading Spinners */
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: currentColor;
+  animation: spin 0.8s linear infinite;
+}
+
+.spinnerDark {
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-top-color: var(--text-main);
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
