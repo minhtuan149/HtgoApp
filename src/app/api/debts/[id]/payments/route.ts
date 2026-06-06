@@ -56,8 +56,8 @@ function calculateAccruedInterest(debt: { amount: number; remaining: number; dat
   if (debt.interestType === 'PERCENT_YEARLY' || debt.interestType === 'FIXED_YEARLY') {
     let years = end.getFullYear() - start.getFullYear();
     // Verify if we have fully crossed the anniversary month and day of the month
-    const hasPassedAnniversary = 
-      end.getMonth() > start.getMonth() || 
+    const hasPassedAnniversary =
+      end.getMonth() > start.getMonth() ||
       (end.getMonth() === start.getMonth() && end.getDate() >= start.getDate());
     if (!hasPassedAnniversary) {
       years--;
@@ -170,7 +170,7 @@ export async function POST(
     });
 
     return NextResponse.json(result, { status: 201 });
-  } catch (error: any) {
+  } catch (error) {
     console.error('Error logging debt payment:', error);
     return NextResponse.json({ error: 'Đã xảy ra lỗi hệ thống' }, { status: 500 });
   }
