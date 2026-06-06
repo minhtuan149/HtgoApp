@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { Wallet, Mail, Lock, User, Loader2, AlertCircle, CheckCircle2 } from 'lucide-react';
+import { Mail, Lock, User, Loader2, AlertCircle, CheckCircle2 } from 'lucide-react';
 import authStyles from '@/styles/auth.module.css';
 import compStyles from '@/styles/components.module.css';
 
@@ -71,7 +71,7 @@ export default function RegisterPage() {
       <div className={authStyles.authCard}>
         <div className={authStyles.logo}>
           <span className={authStyles.logoIcon}>
-            <Wallet size={32} />
+            <img src="/images/logo.png?v=0.01" alt="Logo" width={32} height={32} style={{ borderRadius: '8px' }} />
           </span>
           <span>HtgoApp</span>
         </div>

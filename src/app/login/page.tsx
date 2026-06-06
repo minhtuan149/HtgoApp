@@ -3,7 +3,7 @@
 import React, { useState, Suspense } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { Wallet, Mail, Lock, Loader2, AlertCircle } from 'lucide-react';
+import { Mail, Lock, Loader2, AlertCircle } from 'lucide-react';
 import authStyles from '@/styles/auth.module.css';
 import compStyles from '@/styles/components.module.css';
 
@@ -54,7 +54,7 @@ function LoginForm() {
       <div className={authStyles.authCard}>
         <div className={authStyles.logo}>
           <span className={authStyles.logoIcon}>
-            <Wallet size={32} />
+            <img src="/images/logo.png?v=0.01" alt="Logo" width={32} height={32} style={{ borderRadius: '8px' }} />
           </span>
           <span>HtgoApp</span>
         </div>

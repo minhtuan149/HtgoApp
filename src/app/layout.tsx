@@ -13,8 +13,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "HtgoApp - Quản lý chi tiêu cá nhân",
+  title: "HTGo App",
   description: "Ứng dụng giúp bạn dễ dàng theo dõi thu nhập, chi tiêu và phân tích tài chính cá nhân một cách trực quan, bảo mật.",
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/images/logo.png",
+  },
 };
 
 export default function RootLayout({
