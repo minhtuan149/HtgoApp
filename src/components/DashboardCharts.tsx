@@ -59,7 +59,11 @@ const CustomTooltip = ({ active, payload, label, formatter }: any) => {
 function ClientOnly({ children }: { children: React.ReactNode }) {
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
-    setMounted(true);
+    // Introduce a short timeout to let the page layout settle and obtain computed sizes
+    const timer = setTimeout(() => {
+      setMounted(true);
+    }, 100);
+    return () => clearTimeout(timer);
   }, []);
 
   if (!mounted) {
