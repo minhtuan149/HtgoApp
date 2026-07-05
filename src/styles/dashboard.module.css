@@ -87,11 +87,12 @@
 
 .navActive {
   background-color: var(--primary-light);
-  color: var(--primary);
+  color: hsl(var(--primary-hue), 75%, 35%);
+  font-weight: 700;
 }
 .navActive:hover {
   background-color: var(--primary-light);
-  color: var(--primary);
+  color: hsl(var(--primary-hue), 75%, 30%);
 }
 
 .userProfile {

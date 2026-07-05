@@ -234,7 +234,7 @@
   50% {
     transform: scale(1.08);
     opacity: 1;
-    box-shadow: 0 0 16px hsla(245, 75%, 52%, 0.25);
+    box-shadow: 0 0 16px hsla(var(--primary-hue), 75%, 52%, 0.25);
   }
 }
 

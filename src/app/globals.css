@@ -2,7 +2,7 @@
 
 :root {
   /* HSL Color System */
-  --primary-hue: 245;
+  --primary-hue: 142;
   --primary: hsl(var(--primary-hue), 75%, 52%);
   --primary-hover: hsl(var(--primary-hue), 75%, 45%);
   --primary-light: hsl(var(--primary-hue), 75%, 96.5%);
