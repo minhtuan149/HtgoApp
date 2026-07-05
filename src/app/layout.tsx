@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -12,8 +12,15 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
 export const metadata: Metadata = {
-  title: "HTGo App",
+  title: "HTGo Money",
   description: "Ứng dụng giúp bạn dễ dàng theo dõi thu nhập, chi tiêu và phân tích tài chính cá nhân một cách trực quan, bảo mật.",
   icons: {
     icon: "/favicon.ico",

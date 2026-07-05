@@ -34,6 +34,8 @@ import {
   CartesianGrid
 } from 'recharts';
 import Sidebar from '@/components/Sidebar';
+import Loading from '@/components/Loading';
+import PullToRefresh from '@/components/PullToRefresh';
 import styles from '@/styles/dashboard.module.css';
 import compStyles from '@/styles/components.module.css';
 
@@ -489,7 +491,8 @@ export default function DebtsDashboard() {
       <Sidebar />
 
       <main className={styles.main}>
-        {/* Header Section */}
+        <PullToRefresh onRefresh={fetchDebts}>
+          {/* Header Section */}
         <div className={styles.header}>
           <div className={styles.titleSection}>
             <h1 className={styles.title}>Quản lý Vay & Cho vay</h1>
@@ -697,9 +700,7 @@ export default function DebtsDashboard() {
 
         {/* Debts Content Area */}
         {loading ? (
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '300px' }}>
-            <Loader2 size={36} className="animate-spin-fast" style={{ color: 'var(--primary)' }} />
-          </div>
+          <Loading size="lg" minHeight="300px" />
         ) : debts.length === 0 ? (
           <div className={styles.tableCard} style={{ padding: '60px 20px' }}>
             <div className={styles.emptyState}>
@@ -1542,6 +1543,7 @@ export default function DebtsDashboard() {
             </div>
           </div>
         )}
+        </PullToRefresh>
       </main>
     </div>
   );

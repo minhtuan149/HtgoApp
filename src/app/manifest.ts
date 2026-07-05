@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "HTGo App",
+    name: "HTGo Money",
     short_name: "HTGo",
     description: "Ứng dụng giúp bạn dễ dàng theo dõi thu nhập, chi tiêu và phân tích tài chính cá nhân một cách trực quan, bảo mật.",
     start_url: "/",

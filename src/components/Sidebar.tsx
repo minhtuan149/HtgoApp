@@ -63,7 +63,7 @@ export default function Sidebar() {
         </button>
         <Link href="/dashboard" className={styles.mobileLogo}>
           <img src="/images/logo.png?v=0.01" alt="Logo" width={24} height={24} style={{ borderRadius: '6px' }} />
-          <span>HtgoApp</span>
+          <span>HTGo Money</span>
         </Link>
         <div style={{ width: 36 }} /> {/* Balance spacer to align logo centrally */}
       </div>
@@ -82,7 +82,7 @@ export default function Sidebar() {
             <span className={styles.logoIcon}>
               <img src="/images/logo.png?v=0.01" alt="Logo" width={28} height={28} style={{ borderRadius: '6px' }} />
             </span>
-            <span>HtgoApp</span>
+            <span>HTGo Money</span>
           </Link>
           <button 
             className={styles.closeDrawerBtn} 

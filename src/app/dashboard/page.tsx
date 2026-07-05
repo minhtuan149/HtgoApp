@@ -18,6 +18,8 @@ import {
   TrendingUpIcon
 } from 'lucide-react';
 import Sidebar from '@/components/Sidebar';
+import Loading from '@/components/Loading';
+import PullToRefresh from '@/components/PullToRefresh';
 import { CategoryPieChart, IncomeExpenseBarChart, DailyTrendAreaChart } from '@/components/DashboardCharts';
 import TransactionModal, { CategoryIcon } from '@/components/TransactionModal';
 import styles from '@/styles/dashboard.module.css';
@@ -240,7 +242,8 @@ export default function DashboardPage() {
     <div className={styles.container}>
       <Sidebar />
       <main className={styles.main}>
-        {/* Header Section */}
+        <PullToRefresh onRefresh={fetchData}>
+          {/* Header Section */}
         <div className={styles.header}>
           <div className={styles.titleSection}>
             <h1 className={styles.title}>Tổng quan</h1>
@@ -261,9 +264,7 @@ export default function DashboardPage() {
         </div>
 
         {loading ? (
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '400px' }}>
-            <Loader2 size={36} className="animate-spin-fast" style={{ color: 'var(--primary)' }} />
-          </div>
+          <Loading size="lg" minHeight="400px" />
         ) : (
           <>
             {/* Stats Cards Row */}
@@ -423,8 +424,9 @@ export default function DashboardPage() {
                 </div>
               </div>
             </div>
-          </>
-        )}
+            </>
+          )}
+        </PullToRefresh>
 
         {/* Modal for adding/editing transaction */}
         <TransactionModal

@@ -73,7 +73,7 @@ export default function RegisterPage() {
           <span className={authStyles.logoIcon}>
             <img src="/images/logo.png?v=0.01" alt="Logo" width={32} height={32} style={{ borderRadius: '8px' }} />
           </span>
-          <span>HtgoApp</span>
+          <span>HTGo Money</span>
         </div>
 
         <div className={authStyles.header}>

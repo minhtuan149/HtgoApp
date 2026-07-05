@@ -15,6 +15,8 @@ import {
   FolderOpen
 } from 'lucide-react';
 import Sidebar from '@/components/Sidebar';
+import Loading from '@/components/Loading';
+import PullToRefresh from '@/components/PullToRefresh';
 import TransactionModal, { CategoryIcon } from '@/components/TransactionModal';
 import styles from '@/styles/dashboard.module.css';
 import compStyles from '@/styles/components.module.css';
@@ -83,6 +85,10 @@ export default function TransactionsHistoryPage() {
     } catch (err) {
       console.error('Failed to load categories', err);
     }
+  };
+
+  const handleRefresh = async () => {
+    await Promise.all([fetchTransactions(), fetchCategories()]);
   };
 
   useEffect(() => {
@@ -174,7 +180,8 @@ export default function TransactionsHistoryPage() {
       <Sidebar />
       
       <main className={styles.main}>
-        {/* Header Section */}
+        <PullToRefresh onRefresh={handleRefresh}>
+          {/* Header Section */}
         <div className={styles.header}>
           <div className={styles.titleSection}>
             <h1 className={styles.title}>Quản lý giao dịch</h1>
@@ -309,9 +316,7 @@ export default function TransactionsHistoryPage() {
 
         {/* Transactions Table Section */}
         {loading ? (
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '300px' }}>
-            <Loader2 size={36} className="animate-spin-fast" style={{ color: 'var(--primary)' }} />
-          </div>
+          <Loading size="lg" minHeight="300px" />
         ) : transactions.length === 0 ? (
           <div className={styles.tableCard} style={{ padding: '60px 20px' }}>
             <div className={styles.emptyState}>
@@ -467,6 +472,7 @@ export default function TransactionsHistoryPage() {
             </div>
           </div>
         )}
+        </PullToRefresh>
 
         {/* Edit/Create Modal */}
         <TransactionModal

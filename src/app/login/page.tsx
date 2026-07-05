@@ -4,6 +4,7 @@ import React, { useState, Suspense } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Mail, Lock, Loader2, AlertCircle } from 'lucide-react';
+import Loading from '@/components/Loading';
 import authStyles from '@/styles/auth.module.css';
 import compStyles from '@/styles/components.module.css';
 
@@ -56,7 +57,7 @@ function LoginForm() {
           <span className={authStyles.logoIcon}>
             <img src="/images/logo.png?v=0.01" alt="Logo" width={32} height={32} style={{ borderRadius: '8px' }} />
           </span>
-          <span>HtgoApp</span>
+          <span>HTGo Money</span>
         </div>
 
         <div className={authStyles.header}>
@@ -163,8 +164,8 @@ export default function LoginPage() {
   return (
     <Suspense fallback={
       <div className={authStyles.authContainer}>
-        <div className={authStyles.authCard} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '300px' }}>
-          <Loader2 size={36} className="animate-spin-fast" style={{ color: 'var(--primary)' }} />
+        <div className={authStyles.authCard}>
+          <Loading size="md" minHeight="300px" />
         </div>
       </div>
     }>
