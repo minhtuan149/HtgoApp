@@ -568,14 +568,14 @@ export default function DebtsDashboard() {
                 <span>Đối tác nợ nhiều nhất (Cho vay)</span>
                 <span style={{ fontSize: '12px', fontWeight: 500, color: 'var(--text-muted)' }}>Top 5</span>
               </div>
-              <div className={styles.chartContainer} style={{ minHeight: '200px', padding: '10px 0' }}>
+              <div className={styles.chartContainer} style={{ minHeight: '200px', padding: '10px 0', minWidth: 0 }}>
                 {chartData.lentData.length === 0 ? (
                   <div style={{ height: '180px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)', fontSize: '13px' }}>
                     Chưa có khoản cho vay chưa thanh toán nào
                   </div>
                 ) : (
                   <ClientOnly>
-                    <ResponsiveContainer width="100%" height={180}>
+                    <ResponsiveContainer width="100%" height={180} minWidth={0}>
                       <BarChart
                         layout="vertical"
                         data={chartData.lentData}
@@ -603,14 +603,14 @@ export default function DebtsDashboard() {
                 <span>Chủ nợ lớn nhất (Đi vay)</span>
                 <span style={{ fontSize: '12px', fontWeight: 500, color: 'var(--text-muted)' }}>Top 5</span>
               </div>
-              <div className={styles.chartContainer} style={{ minHeight: '200px', padding: '10px 0' }}>
+              <div className={styles.chartContainer} style={{ minHeight: '200px', padding: '10px 0', minWidth: 0 }}>
                 {chartData.borrowedData.length === 0 ? (
                   <div style={{ height: '180px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)', fontSize: '13px' }}>
                     Chưa có khoản đi vay chưa thanh toán nào
                   </div>
                 ) : (
                   <ClientOnly>
-                    <ResponsiveContainer width="100%" height={180}>
+                    <ResponsiveContainer width="100%" height={180} minWidth={0}>
                       <BarChart
                         layout="vertical"
                         data={chartData.borrowedData}

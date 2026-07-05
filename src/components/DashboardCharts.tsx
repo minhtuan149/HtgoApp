@@ -94,13 +94,13 @@ export function CategoryPieChart({ data }: { data: CategoryPieData[] }) {
 
   return (
     <ClientOnly>
-      <div style={{ width: '100%', height: isMobile ? '240px' : '300px', position: 'relative' }}>
+      <div style={{ width: '100%', height: isMobile ? '240px' : '300px', position: 'relative', minWidth: 0 }}>
         {!hasData ? (
           <div style={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)', fontSize: '14px' }}>
             Không có dữ liệu chi tiêu trong khoảng thời gian này
           </div>
         ) : (
-          <ResponsiveContainer width="100%" height="100%">
+          <ResponsiveContainer width="100%" height="100%" minWidth={0}>
             <PieChart>
               <Pie
                 data={data.filter(item => item.value > 0)}
@@ -151,8 +151,8 @@ export function IncomeExpenseBarChart({ data }: { data: BarChartData[] }) {
 
   return (
     <ClientOnly>
-      <div style={{ width: '100%', height: isMobile ? '240px' : '300px' }}>
-        <ResponsiveContainer width="100%" height="100%">
+      <div style={{ width: '100%', height: isMobile ? '240px' : '300px', minWidth: 0 }}>
+        <ResponsiveContainer width="100%" height="100%" minWidth={0}>
           <BarChart
             data={data}
             margin={isMobile ? { top: 10, right: 5, left: -25, bottom: 0 } : { top: 10, right: 10, left: -10, bottom: 0 }}
@@ -193,13 +193,13 @@ export function DailyTrendAreaChart({ data }: { data: DailyTrendData[] }) {
 
   return (
     <ClientOnly>
-      <div style={{ width: '100%', height: isMobile ? '240px' : '300px' }}>
+      <div style={{ width: '100%', height: isMobile ? '240px' : '300px', minWidth: 0 }}>
         {!hasData ? (
           <div style={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)', fontSize: '14px' }}>
             Chưa có dữ liệu xu hướng trong tháng này
           </div>
         ) : (
-          <ResponsiveContainer width="100%" height="100%">
+          <ResponsiveContainer width="100%" height="100%" minWidth={0}>
             <AreaChart
               data={data}
               margin={isMobile ? { top: 10, right: 5, left: -25, bottom: 0 } : { top: 10, right: 10, left: -10, bottom: 0 }}
