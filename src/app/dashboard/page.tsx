@@ -17,11 +17,12 @@ import {
   ChevronRight,
   TrendingUpIcon
 } from 'lucide-react';
-import Sidebar from '@/components/Sidebar';
-import Loading from '@/components/Loading';
-import PullToRefresh from '@/components/PullToRefresh';
-import { CategoryPieChart, IncomeExpenseBarChart, DailyTrendAreaChart } from '@/components/DashboardCharts';
-import TransactionModal, { CategoryIcon } from '@/components/TransactionModal';
+import Sidebar from '@/components/layout/Sidebar';
+import { useSearchParams, useRouter } from 'next/navigation';
+import Loading from '@/components/ui/Loading';
+import PullToRefresh from '@/components/ui/PullToRefresh';
+import { CategoryPieChart, IncomeExpenseBarChart, DailyTrendAreaChart } from '@/components/dashboard/DashboardCharts';
+import TransactionModal, { CategoryIcon } from '@/components/transactions/TransactionModal';
 import styles from '@/styles/dashboard.module.css';
 import compStyles from '@/styles/components.module.css';
 
@@ -33,7 +34,9 @@ const formatVND = (value: number) => {
   }).format(value);
 };
 
-export default function DashboardPage() {
+function DashboardContent() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const [transactions, setTransactions] = useState<any[]>([]);
   const [categories, setCategories] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -85,6 +88,29 @@ export default function DashboardPage() {
   useEffect(() => {
     fetchData();
   }, []);
+
+  useEffect(() => {
+    const handleOpenModal = () => {
+      setSelectedTransaction(null);
+      setModalOpen(true);
+    };
+    window.addEventListener('open-add-transaction-modal', handleOpenModal);
+    return () => {
+      window.removeEventListener('open-add-transaction-modal', handleOpenModal);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (searchParams.get('add') === 'true') {
+      setSelectedTransaction(null);
+      setModalOpen(true);
+      
+      const params = new URLSearchParams(window.location.search);
+      params.delete('add');
+      const newUrl = params.toString() ? `${window.location.pathname}?${params.toString()}` : window.location.pathname;
+      router.replace(newUrl);
+    }
+  }, [searchParams, router]);
 
   const calculateDashboardMetrics = (transList: any[]) => {
     let income = 0;
@@ -441,5 +467,13 @@ export default function DashboardPage() {
         />
       </main>
     </div>
+  );
+}
+
+export default function DashboardPage() {
+  return (
+    <React.Suspense fallback={<Loading size="lg" minHeight="400px" />}>
+      <DashboardContent />
+    </React.Suspense>
   );
 }

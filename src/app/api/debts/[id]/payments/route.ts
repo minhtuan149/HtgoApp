@@ -6,7 +6,7 @@ import { getSessionUser } from '@/lib/jwt';
 async function getOrCreateDebtCategory(userId: string, type: 'INCOME' | 'EXPENSE') {
   const name = type === 'INCOME' ? 'Đi vay / Nhận nợ' : 'Cho vay / Trả nợ';
   const icon = type === 'INCOME' ? 'Download' : 'Upload';
-  const color = type === 'INCOME' ? '#10B981' : '#EF4444';
+  const color = type === 'INCOME' ? '#22af80' : '#EF4444';
 
   let category = await prisma.category.findFirst({
     where: {

@@ -47,7 +47,7 @@ export async function POST(request: Request) {
         { name: 'Giải trí', type: 'EXPENSE', icon: 'Film', color: '#8B5CF6' },
         { name: 'Nhà cửa', type: 'EXPENSE', icon: 'Home', color: '#06B6D4' },
         { name: 'Chi phí khác', type: 'EXPENSE', icon: 'HelpCircle', color: '#6B7280' },
-        { name: 'Tiền lương', type: 'INCOME', icon: 'DollarSign', color: '#10B981' },
+        { name: 'Tiền lương', type: 'INCOME', icon: 'DollarSign', color: '#22af80' },
         { name: 'Đầu tư', type: 'INCOME', icon: 'TrendingUp', color: '#14B8A6' },
         { name: 'Thu nhập khác', type: 'INCOME', icon: 'PlusCircle', color: '#A855F7' },
       ];

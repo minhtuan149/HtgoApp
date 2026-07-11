@@ -14,10 +14,10 @@ import {
   RefreshCw,
   FolderOpen
 } from 'lucide-react';
-import Sidebar from '@/components/Sidebar';
-import Loading from '@/components/Loading';
-import PullToRefresh from '@/components/PullToRefresh';
-import TransactionModal, { CategoryIcon } from '@/components/TransactionModal';
+import Sidebar from '@/components/layout/Sidebar';
+import Loading from '@/components/ui/Loading';
+import PullToRefresh from '@/components/ui/PullToRefresh';
+import TransactionModal, { CategoryIcon } from '@/components/transactions/TransactionModal';
 import styles from '@/styles/dashboard.module.css';
 import compStyles from '@/styles/components.module.css';
 
@@ -93,6 +93,17 @@ export default function TransactionsHistoryPage() {
 
   useEffect(() => {
     fetchCategories();
+  }, []);
+
+  useEffect(() => {
+    const handleOpenModal = () => {
+      setSelectedTransaction(null);
+      setModalOpen(true);
+    };
+    window.addEventListener('open-add-transaction-modal', handleOpenModal);
+    return () => {
+      window.removeEventListener('open-add-transaction-modal', handleOpenModal);
+    };
   }, []);
 
   // Fetch transactions whenever filters change (with small delay for text search if needed, but here simple trigger)

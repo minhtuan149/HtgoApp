@@ -4,7 +4,7 @@ import React, { useState, Suspense } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Mail, Lock, Loader2, AlertCircle } from 'lucide-react';
-import Loading from '@/components/Loading';
+import Loading from '@/components/ui/Loading';
 import authStyles from '@/styles/auth.module.css';
 import compStyles from '@/styles/components.module.css';
 

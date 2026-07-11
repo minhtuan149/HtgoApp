@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { LayoutDashboard, ReceiptText, HandCoins, LogOut, Loader2, Menu, X } from 'lucide-react';
+import { LayoutDashboard, ReceiptText, HandCoins, LogOut, Loader2, Menu, X, Plus, User } from 'lucide-react';
 import styles from '@/styles/dashboard.module.css';
 
 interface UserInfo {
@@ -50,25 +50,25 @@ export default function Sidebar() {
     }
   };
 
+  const handleQuickAdd = () => {
+    if (pathname !== '/dashboard' && pathname !== '/dashboard/transactions') {
+      router.push('/dashboard?add=true');
+    } else {
+      window.dispatchEvent(new CustomEvent('open-add-transaction-modal'));
+    }
+  };
+
   return (
     <>
       {/* Mobile top bar */}
       <div className={styles.mobileHeader}>
-        <button 
-          className={styles.menuToggleBtn} 
-          onClick={() => setIsOpen(true)}
-          aria-label="Open menu"
-        >
-          <Menu size={24} />
-        </button>
         <Link href="/dashboard" className={styles.mobileLogo}>
-          <img src="/images/logo.png?v=0.01" alt="Logo" width={24} height={24} style={{ borderRadius: '6px' }} />
+          <img src="/images/logo.png?v=0.01" alt="Logo" width={22} height={22} style={{ borderRadius: '6px' }} />
           <span>HTGo Money</span>
         </Link>
-        <div style={{ width: 36 }} /> {/* Balance spacer to align logo centrally */}
       </div>
 
-      {/* Backdrop overlay */}
+      {/* Backdrop overlay (for responsive drawer, kept for fallback) */}
       {isOpen && (
         <div 
           className={styles.sidebarOverlay} 
@@ -76,6 +76,7 @@ export default function Sidebar() {
         />
       )}
 
+      {/* Desktop Sidebar (hidden on mobile via CSS) */}
       <aside className={`${styles.sidebar} ${isOpen ? styles.sidebarOpen : ''}`}>
         <div className={styles.drawerHeader}>
           <Link href="/dashboard" className={styles.logo} onClick={() => setIsOpen(false)}>
@@ -152,6 +153,50 @@ export default function Sidebar() {
           <span>Beta v0.01</span>
         </div>
       </aside>
+
+      {/* Sticky Bottom Navigation Bar for Mobile */}
+      <div className={styles.bottomNav}>
+        <Link
+          href="/dashboard"
+          className={`${styles.bottomNavItem} ${
+            pathname === '/dashboard' ? styles.bottomNavActive : ''
+          }`}
+        >
+          <LayoutDashboard size={20} />
+          <span>Tổng quan</span>
+        </Link>
+
+        <Link
+          href="/dashboard/transactions"
+          className={`${styles.bottomNavItem} ${
+            pathname === '/dashboard/transactions' ? styles.bottomNavActive : ''
+          }`}
+        >
+          <ReceiptText size={20} />
+          <span>Giao dịch</span>
+        </Link>
+
+
+
+        <Link
+          href="/dashboard/debts"
+          className={`${styles.bottomNavItem} ${
+            pathname === '/dashboard/debts' ? styles.bottomNavActive : ''
+          }`}
+        >
+          <HandCoins size={20} />
+          <span>Nợ nần</span>
+        </Link>
+
+        <button
+          className={styles.bottomNavItem}
+          onClick={() => setIsOpen(true)}
+          style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+        >
+          <User size={20} />
+          <span>Tài khoản</span>
+        </button>
+      </div>
     </>
   );
 }

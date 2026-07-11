@@ -33,9 +33,9 @@ import {
   Cell,
   CartesianGrid
 } from 'recharts';
-import Sidebar from '@/components/Sidebar';
-import Loading from '@/components/Loading';
-import PullToRefresh from '@/components/PullToRefresh';
+import Sidebar from '@/components/layout/Sidebar';
+import Loading from '@/components/ui/Loading';
+import PullToRefresh from '@/components/ui/PullToRefresh';
 import styles from '@/styles/dashboard.module.css';
 import compStyles from '@/styles/components.module.css';
 

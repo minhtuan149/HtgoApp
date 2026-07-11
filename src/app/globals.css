@@ -2,14 +2,14 @@
 
 :root {
   /* HSL Color System */
-  --primary-hue: 142;
-  --primary: hsl(var(--primary-hue), 75%, 52%);
-  --primary-hover: hsl(var(--primary-hue), 75%, 45%);
-  --primary-light: hsl(var(--primary-hue), 75%, 96.5%);
+  --primary-hue: 150;
+  --primary: hsl(var(--primary-hue), 40%, 49%);
+  --primary-hover: hsl(var(--primary-hue), 40%, 41%);
+  --primary-light: hsl(var(--primary-hue), 40%, 94%);
   
-  --success: hsl(142, 72%, 29%);
-  --success-hover: hsl(142, 72%, 24%);
-  --success-light: hsl(142, 72%, 96%);
+  --success: hsl(150, 42%, 35%);
+  --success-hover: hsl(150, 42%, 28%);
+  --success-light: hsl(150, 42%, 96%);
   
   --danger: hsl(346, 78%, 48%);
   --danger-hover: hsl(346, 78%, 40%);
@@ -17,15 +17,17 @@
 
   --warning: hsl(38, 92%, 50%);
   
-  /* Bright & Crisp Light Theme Neutrals */
-  --bg-app: hsl(210, 40%, 96.5%);
-  --bg-card: hsl(0, 0%, 100%);
-  --bg-popover: hsl(0, 0%, 100%);
-  --border-color: hsl(214, 15%, 89%);
+  /* Bright & Crisp Light Theme Neutrals - User Spec */
+  --bg-app: #F4FBF6;
+  --bg-card: #FFFFFF;
+  --bg-popover: #FFFFFF;
+  --border-color: #E2EFE5;
   
-  --text-main: hsl(222, 47%, 11%);
-  --text-muted: hsl(220, 16%, 42%);
-  --text-inverse: hsl(0, 0%, 100%);
+  --text-main: #26332B;
+  --text-muted: #6B7C70;
+  --text-inverse: #FFFFFF;
+
+  --primary-gradient: linear-gradient(135deg, #E8F5E9 0%, #BFE3C7 100%);
   
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.06), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
